@@ -1,6 +1,7 @@
 import java.awt.*;
 
 public class Ball extends Rectangle{
+    
     //instance variable has default value is 0;
     int x_Direction,y_Direction,x_Velocity,y_Velocity;
     int speed = 3;
