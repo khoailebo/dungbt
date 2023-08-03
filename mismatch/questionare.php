@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     }
 }
 $reponses = array();
-$query = "select mr.reponse_id, mr.reponse,mt.name as topic_name, mc.name as category_name ".
+$query = "select mr.response_id, mr.response,mt.name as topic_name, mc.name as category_name ".
 "from mismatch_response as mr ".
 "inner join mismatch_topic as mt using (topic_id) ".
 "inner join mismatch_category as mc using (category_id) ".
@@ -66,9 +66,9 @@ mysqli_close($dbc);
                 <?php
             }
             ?>
-            <label for="<?php echo $reponse['reponse_id'];?>" <?php echo $reponse['reponse'] == null?'class = "error"':'' ?>><?php echo $reponse['topic_name']; ?></label>
-            <input type="radio" id="<?php echo $reponse['reponse_id']; ?>" name="<?php echo $reponse['reponse_id']; ?>" value="1" <?php echo $reponse['reponse'] == 1?'checked="checked"':''; ?>>Love
-            <input type="radio" id="<?php echo $reponse['reponse_id']; ?>" name="<?php echo $reponse['reponse_id']; ?>" value="2" <?php echo $reponse['reponse'] == 2?'checked="checked"':''; ?>>Hate <br/>
+            <label for="<?php echo $reponse['response_id'];?>" <?php echo $reponse['response'] == null?'class = "error"':'' ?>><?php echo $reponse['topic_name']; ?></label>
+            <input type="radio" id="<?php echo $reponse['response_id']; ?>" name="<?php echo $reponse['response_id']; ?>" value="1" <?php echo $reponse['response'] == 1?'checked="checked"':''; ?>>Love
+            <input type="radio" id="<?php echo $reponse['response_id']; ?>" name="<?php echo $reponse['response_id']; ?>" value="2" <?php echo $reponse['response'] == 2?'checked="checked"':''; ?>>Hate <br/>
             <?php
         }
         ?>

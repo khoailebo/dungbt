@@ -13,7 +13,7 @@
 
     $user_reponses = array();
     $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-    $query = "select mr.reponse, mt.name as topic_name,mc.name as category_name ".
+    $query = "select mr.response, mt.name as topic_name,mc.name as category_name ".
     "from mismatch_response as mr ".
     "inner join mismatch_topic as mt using(topic_id) ".
     "inner join mismatch_category as mc using(category_id)".
@@ -43,7 +43,7 @@
         $mismatch_response = array();
         $topics = array();
         $category = array();
-        $query2 = "select reponse from mismatch_response where user_id = ". $row['user_id'];
+        $query2 = "select response from mismatch_response where user_id = ". $row['user_id'];
         $data2 = mysqli_query($dbc,$query2);
         while($row2 = mysqli_fetch_array($data2))
         {
@@ -51,7 +51,7 @@
         }
         for($i = 0;$i < count($user_reponses);$i++)
         {
-            if(((int)$user_reponses[$i]['reponse'] + (int)$mismatch_response[$i]['reponse']) == 3)
+            if(((int)$user_reponses[$i]['response'] + (int)$mismatch_response[$i]['response']) == 3)
             {
                 $score++;
                 $topics[] = $user_reponses[$i]['topic_name'];
